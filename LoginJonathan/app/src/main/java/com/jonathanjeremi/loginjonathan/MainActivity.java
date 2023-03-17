@@ -3,6 +3,7 @@ package com.jonathanjeremi.loginjonathan;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText Username, Password;
-    Button btnLogin;
+    Button btnLogin, btnExit;
+    AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
         Username = (EditText) findViewById(R.id.username);
         Password = (EditText) findViewById(R.id.password);
-        btnLogin = (Button)findViewById(R.id.btnLogin);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnExit = (Button) findViewById(R.id.btnExit);
+        builder = new AlertDialog.Builder(this);
 
         btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -39,6 +43,28 @@ public class MainActivity extends AppCompatActivity {
                             .setNegativeButton("Please Retry Again", null).create().show();
                 }
 
+            }
+        });
+
+        btnExit.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                builder.setTitle("Alert!!!")
+                        .setMessage("Apakah Anda ingin keluar?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        })
+                        .show();
             }
         });
 
