@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background2"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".home">
 
     <TextView
@@ -21,4 +22,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-25dp"
+        android:text="You can click these things below"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/inventoryButton"
+        android:layout_width="187dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Click Here!" />
 </LinearLayout>
